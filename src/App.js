@@ -81,7 +81,6 @@ const Appcontain = styled.div`
     margin-top: 20px;
     background-color: #fcfcfc;
     border-radius: 5px;
-    padding: 10px 20px;
     width: 300px;
     max-width: 400px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
