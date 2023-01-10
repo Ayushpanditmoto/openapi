@@ -89,6 +89,11 @@ const Appcontain = styled.div`
     margin-top: 20px;
     background-color: #fcfcfc;
     width: 550px;
-    height: 550px;
+    margin: 1rem;
+  }
+  @media screen and (max-width: 600px) {
+    .imagewrap {
+      width: 400px;
+    }
   }
 `;
