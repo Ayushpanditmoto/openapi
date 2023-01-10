@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import spinner from "./spinner";
 
@@ -9,6 +9,13 @@ function App() {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+  useEffect(() => {
+    const image = localStorage.getItem("image");
+    if (image) {
+      setImage(image);
+    }
+  }, []);
+
   const handleClick = async () => {
     setLoading(true);
     try {
@@ -26,6 +33,7 @@ function App() {
       );
       const data = await response.json();
       console.log(data);
+      localStorage.setItem("image", data.image);
       setImage(data.image);
       setLoading(false);
     } catch (error) {
@@ -68,12 +76,14 @@ const Appcontain = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
   .inputwrap {
     margin-top: 20px;
     background-color: #fcfcfc;
     border-radius: 5px;
     padding: 10px 20px;
-    width: 400px;
+    width: 300px;
+    max-width: 400px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .imagewrap {
